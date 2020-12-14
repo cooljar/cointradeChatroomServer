@@ -5,7 +5,7 @@ const io = require("socket.io")(http, {
         origin: '*',
         //origin: "http://localhost",
         //methods: ["GET", "POST"],
-        //credentials: true
+        credentials: true
     }
   });
 
