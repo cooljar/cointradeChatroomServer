@@ -4,8 +4,8 @@ const PORT = process.env.PORT || 3000;
 
 const io = require("socket.io")(http, {
     cors: {
-        origin: '*',
-        //origin: "http://localhost",
+        //origin: '*',
+        origin: "http://localhost",
         methods: ["GET", "POST"],
         credentials: false
     }
