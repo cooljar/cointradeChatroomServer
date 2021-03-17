@@ -4,14 +4,26 @@ const PORT = process.env.PORT || 3000;
 
 const io = require("socket.io")(http, {
     cors: {
-        origin: '*',
-        //origin: "http://localhost",
-        //origin: "http://meraihsukses.info",
+        origin: 'https://cointrade.id',
+        //origins: [],
         methods: ["GET", "POST"],
         credentials: true,
-        allowedHeaders: ["my-custom-header"],
+        allowedHeaders: ["cointrade-app-header"],
     }
-  });
+});
+
+/*const io = require("socket.io")(http, {
+    origins: ["http://localhost", "http://meraihsukses.info", "https://cointrade.id"],
+    handlePreflightRequest: (req, res) => {
+      res.writeHead(200, {
+        "Access-Control-Allow-Origin": "https://example.com",
+        "Access-Control-Allow-Methods": "GET,POST",
+        "Access-Control-Allow-Headers": "cointrade-app-header",
+        "Access-Control-Allow-Credentials": true
+      });
+      res.end();
+    }
+});*/
 
 io.on('connection', (socket) => {
     console.log('a user connected');
